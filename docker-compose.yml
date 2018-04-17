@@ -4,12 +4,9 @@ services:
   db:
     image: postgres
   web:
-#   build: .
     image: yiliao/compose-django:v1
-    command: python3 manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/code
+    command: ["python3", "manage.py", "runserver", "0.0.0.0:8080"]
     ports:
-      - "8000:8000"
+      - "8080:8080"
     depends_on:
       - db
